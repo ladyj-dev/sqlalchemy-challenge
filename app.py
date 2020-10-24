@@ -72,6 +72,9 @@ def stations():
 
         session.close()
 
+if__name__ == "__main__":
+    app.run(debug=True)
+
         
 
 
