@@ -51,7 +51,29 @@ def stations():
     session = Session(engine)
 
     """Return a list of all stations"""
+    # query dataset
     results = session.query(stations.name).all()
-    
+
+    session.close()
+
+    #convert list of tuples into normal list
+
+    all_stations = list(np.ravel(results))
+
+    return jsonify(all_stations)
+
+@app.route("/api/v1.0/tobs")
+    def tobs():
+        session = Session(engine)
+
+        """Return a list of temperature observations (TOBS) for the previous year"""
+        #query all dates and temperatures for the previous year
+        results = session.query(Station.station, Station.tobs).all()
+
+        session.close()
+
+        
+
+
 
 
