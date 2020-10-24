@@ -63,7 +63,7 @@ def stations():
     return jsonify(all_stations)
 
 @app.route("/api/v1.0/tobs")
-    def tobs():
+def tobs():
         session = Session(engine)
 
         """Return a list of temperature observations (TOBS) for the previous year"""
